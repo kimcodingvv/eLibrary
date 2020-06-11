@@ -8,9 +8,9 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="rentCntDesc"> 대여량 기준 정렬
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#"> 대여된 책
+			<li class="nav-item"><a class="nav-link" href="yesRent"> 대여된 책
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#"> 대여 가능한 책  
+			<li class="nav-item"><a class="nav-link" href="noRent"> 대여 가능한 책  
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#"> 대여
 			</a></li>

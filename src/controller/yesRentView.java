@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.filterBookList;
 
-@WebServlet("/rentCntDescView")
-public class rentCntDescView extends HttpServlet {
+@WebServlet("/yesRentView")
+public class yesRentView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public rentCntDescView() {
+       
+    public yesRentView() {
         super();
     }
 
@@ -24,8 +24,9 @@ public class rentCntDescView extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
 		request.setAttribute("action", "catalog");
-		request.setAttribute("bookList", list.getRentCntDesc());
+		request.setAttribute("bookList", list.getYesRent());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");
 		ret.forward(request,response);
 	}
+
 }

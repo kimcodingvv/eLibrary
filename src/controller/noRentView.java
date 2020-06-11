@@ -9,22 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.filterBookList;
 
-@WebServlet("/rentCntDescView")
-public class rentCntDescView extends HttpServlet {
+@WebServlet("/noRentView")
+public class noRentView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public rentCntDescView() {
+       
+    public noRentView() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
 		request.setAttribute("action", "catalog");
-		request.setAttribute("bookList", list.getRentCntDesc());
+		request.setAttribute("bookList", list.getNoRent());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");
 		ret.forward(request,response);
 	}

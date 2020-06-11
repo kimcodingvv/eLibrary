@@ -52,7 +52,7 @@ public class BookInfoDao {
 			ResultSet rs = null;
 			String query = "select * from BookInfo";
 			if(!action.equals("all"))
-				query += " where" + action + "=" + value;
+				query += " where " + action + "=" + value;
 			query += " order by " + order + (isAsc ? " ASC" : " DESC") + ";";
 			rs = stmt.executeQuery(query);
 			while (rs.next())
