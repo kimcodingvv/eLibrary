@@ -17,7 +17,7 @@ public class filterBookList {
 	}
 	
 	public Vector <BookInfo> getRentalCntDesc(){
-		dao.findAndSort("all", "", "rentalCnt", false);
+		dao.findAndSort("all", "", "rentCnt", false);
 		return dao.getBookList();
 	}
 }

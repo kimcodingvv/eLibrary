@@ -30,10 +30,10 @@
 					<td>${book.author}</td>
 					<td>${book.price}</td>
 					<td>
-						<c:if test="${book.rental}">Y</c:if>
-						<c:if test="${!book.rental}">N</c:if>
+						<c:if test="${book.rent}">Y</c:if>
+						<c:if test="${!book.rent}">N</c:if>
 					</td>
-					<td>${book.rentalCnt}</td>
+					<td>${book.rentCnt}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

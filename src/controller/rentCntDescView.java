@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.filterBookList;
 
-@WebServlet("/rentalCntDescView")
-public class rentalCntDescView extends HttpServlet {
+@WebServlet("/rentCntDescView")
+public class rentCntDescView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public rentalCntDescView() {
+    public rentCntDescView() {
         super();
     }
 

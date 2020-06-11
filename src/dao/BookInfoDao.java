@@ -40,8 +40,8 @@ public class BookInfoDao {
 		book.setTitle(rs.getString("title"));
 		book.setAuthor(rs.getString("author"));
 		book.setPrice(rs.getInt("price"));
-		book.setRental(rs.getBoolean("Rental"));
-		book.setRentalCnt(rs.getInt("RentalCnt"));
+		book.setRent(rs.getBoolean("Rent"));
+		book.setRentCnt(rs.getInt("RentCnt"));
 		this.bookList.addElement(book);
 	}
 	

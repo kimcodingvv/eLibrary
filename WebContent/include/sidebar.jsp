@@ -6,7 +6,7 @@
 		<ul class="nav flex-column">
 			<li class="nav-item"><a class="nav-link" href="catalog"> 목록 
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="rentalCntDesc"> 대여량 기준 정렬
+			<li class="nav-item"><a class="nav-link" href="rentCntDesc"> 대여량 기준 정렬
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#"> 대여된 책
 			</a></li>

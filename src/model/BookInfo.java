@@ -5,8 +5,8 @@ public class BookInfo {
 	private String title;
 	private String author;
 	private int price;
-	private boolean rental;
-	private int rentalCnt;
+	private boolean rent;
+	private int rentCnt;
 	
 	public int getId() {
 		return this.id;
@@ -32,16 +32,16 @@ public class BookInfo {
 	public void setPrice(int x) {
 		this.price = x;
 	}
-	public boolean getRental() {
-		return this.rental;
+	public boolean getRent() {
+		return this.rent;
 	}
-	public void setRental(boolean x) {
-		this.rental = x;
+	public void setRent(boolean x) {
+		this.rent = x;
 	}
-	public int getRentalCnt() {
-		return this.rentalCnt;
+	public int getRentCnt() {
+		return this.rentCnt;
 	}
-	public void setRentalCnt(int x) {
-		this.rentalCnt = x;
+	public void setRentCnt(int x) {
+		this.rentCnt = x;
 	}
 }
