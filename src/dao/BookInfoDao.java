@@ -30,25 +30,34 @@ public class BookInfoDao {
 		}
 	}
 
-	public Vector <BookInfo> getBookList(String prop, String value) {
+	public Vector <BookInfo> getBookList() {
+		return this.bookList;
+	}
+	
+	public void addElement(ResultSet rs) throws SQLException {
+		BookInfo book = new BookInfo();
+		book.setId(rs.getInt("id"));
+		book.setTitle(rs.getString("title"));
+		book.setAuthor(rs.getString("author"));
+		book.setPrice(rs.getInt("price"));
+		book.setRental(rs.getBoolean("Rental"));
+		book.setRentalCnt(rs.getInt("RentalCnt"));
+		this.bookList.addElement(book);
+	}
+	
+	public void findAndSort(String action, String value, String order, boolean isAsc) {
 		Statement stmt = null;
 		try {
 			stmt = this.conn.createStatement();
 			ResultSet rs = null;
-			if(prop.equals("all"))
-				rs = stmt.executeQuery("select * from BookInfo;");
-			else
-				rs = stmt.executeQuery("select * from BookInfo where '" + prop + "'='" + value + "';");
-			while (rs.next()) {
-				BookInfo book = new BookInfo();
-				book.setId(rs.getInt("id"));
-				book.setTitle(rs.getString("title"));
-				book.setAuthor(rs.getString("author"));
-				book.setPrice(rs.getInt("price"));
-				book.setRental(rs.getBoolean("Rental"));
-				book.setRentalCnt(rs.getInt("RentalCnt"));
-				this.bookList.addElement(book);
-			}
+			String query = "select * from BookInfo";
+			if(!action.equals("all"))
+				query += " where" + action + "=" + value;
+			query += " order by " + order + (isAsc ? " ASC" : " DESC") + ";";
+			rs = stmt.executeQuery(query);
+			while (rs.next())
+				this.addElement(rs);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -61,6 +70,5 @@ public class BookInfoDao {
 			}
 			catch (Exception ignored) {}
 		}
-		return bookList;
 	}
 }

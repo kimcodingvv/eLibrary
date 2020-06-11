@@ -12,6 +12,12 @@ public class filterBookList {
 	}
 	
 	public Vector <BookInfo> getAll(){
-		return dao.getBookList("all", "");
+		dao.findAndSort("all", "", "id", true);
+		return dao.getBookList();
+	}
+	
+	public Vector <BookInfo> getRentalCntDesc(){
+		dao.findAndSort("all", "", "rentalCnt", false);
+		return dao.getBookList();
 	}
 }
