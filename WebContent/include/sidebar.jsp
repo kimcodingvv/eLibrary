@@ -4,7 +4,7 @@
 <nav class="col-md-2 sidebar">
 	<div class="sidebar-sticky">
 		<ul class="nav flex-column">
-			<li class="nav-item"><a class="nav-link" href="#"> 목록 
+			<li class="nav-item"><a class="nav-link" href="route?action=catalog"> 목록 
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#"> 대여량 기준 정렬
 			</a></li>
