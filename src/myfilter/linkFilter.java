@@ -39,7 +39,8 @@ public class linkFilter implements Filter {
 
 	private boolean excludeUrl(String action) {
 		if (action.equals("catalog") || action.equals("rentCntDesc")
-				|| action.equals("yesRent") || action.equals("noRent")) {
+				|| action.equals("yesRent") || action.equals("noRent")
+				|| action.equals("rental") || action.equals("return")) {
 			return false;
 		} else {
 			return true;

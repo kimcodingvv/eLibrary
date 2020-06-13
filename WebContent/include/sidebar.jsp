@@ -12,9 +12,9 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="noRent"> 대여 가능한 책  
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#"> 대여
+			<li class="nav-item"><a class="nav-link" href="rental"> 대여
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#"> 반납
+			<li class="nav-item"><a class="nav-link" href="return"> 반납
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#"> 추가
 			</a></li>

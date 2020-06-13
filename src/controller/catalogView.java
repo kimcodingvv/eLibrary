@@ -26,6 +26,7 @@ public class catalogView extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
+		request.setAttribute("title", "목록");
 		request.setAttribute("bookList", list.getAll());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");
 		ret.forward(request,response);

@@ -23,6 +23,7 @@ public class rentCntDescView extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
+		request.setAttribute("title", "대여량 기준 정렬");
 		request.setAttribute("action", "catalog");
 		request.setAttribute("bookList", list.getRentCntDesc());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");

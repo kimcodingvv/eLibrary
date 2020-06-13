@@ -23,6 +23,7 @@ public class noRentView extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
+		request.setAttribute("title", "대여 가능한 책");
 		request.setAttribute("action", "catalog");
 		request.setAttribute("bookList", list.getNoRent());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");

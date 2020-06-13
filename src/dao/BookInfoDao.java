@@ -34,7 +34,7 @@ public class BookInfoDao {
 		return this.bookList;
 	}
 	
-	public void addElement(ResultSet rs) throws SQLException {
+	private void addElement(ResultSet rs) throws SQLException {
 		BookInfo book = new BookInfo();
 		book.setId(rs.getInt("id"));
 		book.setTitle(rs.getString("title"));
@@ -49,26 +49,33 @@ public class BookInfoDao {
 		Statement stmt = null;
 		try {
 			stmt = this.conn.createStatement();
-			ResultSet rs = null;
 			String query = "select * from BookInfo";
 			if(!action.equals("all"))
 				query += " where " + action + "=" + value;
 			query += " order by " + order + (isAsc ? " ASC" : " DESC") + ";";
-			rs = stmt.executeQuery(query);
+			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next())
 				this.addElement(rs);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				stmt.close();
-			}
-			catch (Exception ignored) {}
-			try {
-				conn.close();
-			}
+			try { stmt.close();}
 			catch (Exception ignored) {}
 		}
+	}
+	
+	public boolean rentToggle(String id) {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "update BookInfo set rentCnt = rentCnt + 1 where id=" + id + " and rent = 0;";
+			stmt.executeUpdate(query);
+			query = "update BookInfo set rent = rent XOR 1 where id=" + id + ";";
+			return stmt.executeUpdate(query) == 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

@@ -26,7 +26,6 @@ public class route extends HttpServlet {
 		request.setAttribute("action", action);
 		RequestDispatcher ret = request.getRequestDispatcher((action.equals("home") ? "/view/layout.jsp" : action + "View"));
 		ret.forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 }
