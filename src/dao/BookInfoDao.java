@@ -78,4 +78,17 @@ public class BookInfoDao {
 		}
 		return false;
 	}
+	
+	public boolean addBook(String id, String title, String author, String price) {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "insert into BookInfo " + "(id, title, author, price) value (" +
+					id + "," + title + "," + author + "," + price + ");";
+			return stmt.executeUpdate(query) == 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

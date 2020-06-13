@@ -24,4 +24,8 @@ public class bookManagement {
 		dao.findAndSort("id", id, "id", true);
 		dao.rentToggle(id);
 	}
+	
+	public boolean addBook(String id, String title, String author, String price) {
+		return dao.addBook(id, title, author, price);
+	}
 }

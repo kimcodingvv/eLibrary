@@ -40,7 +40,7 @@ public class linkFilter implements Filter {
 	private boolean excludeUrl(String action) {
 		if (action.equals("catalog") || action.equals("rentCntDesc")
 				|| action.equals("yesRent") || action.equals("noRent")
-				|| action.equals("rental") || action.equals("return")) {
+				|| action.equals("rental") || action.equals("return") || action.equals("insert")) {
 			return false;
 		} else {
 			return true;
