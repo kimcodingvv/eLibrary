@@ -1,4 +1,4 @@
-package controller;
+package controller.view;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;

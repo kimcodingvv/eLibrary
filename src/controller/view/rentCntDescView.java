@@ -1,4 +1,4 @@
-package controller;
+package controller.view;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.filterBookList;
 
-@WebServlet("/yesRentView")
-public class yesRentView extends HttpServlet {
+@WebServlet("/rentCntDescView")
+public class rentCntDescView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public yesRentView() {
+
+    public rentCntDescView() {
         super();
     }
 
@@ -23,11 +23,10 @@ public class yesRentView extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
-		request.setAttribute("title", "대여된 책");
+		request.setAttribute("title", "대여량 기준 정렬");
 		request.setAttribute("action", "catalog");
-		request.setAttribute("bookList", list.getYesRent());
+		request.setAttribute("bookList", list.getRentCntDesc());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");
 		ret.forward(request,response);
 	}
-
 }
