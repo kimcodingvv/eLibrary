@@ -5,11 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="/include/header.jsp"%>
+<%@ include file="/include/bootstrap.jsp"%>
 <meta charset="UTF-8">
 <title>eLibrary</title>
 </head>
 <body>
+	<%@ include file="/include/header.jsp" %>
 	<div class="container-fluid">
 		<div class="row">
 			<%@ include file="/include/sidebar.jsp"%>

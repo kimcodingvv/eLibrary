@@ -36,7 +36,7 @@ public class addBook extends HttpServlet {
 			request.setAttribute("action", action);
 			rd.forward(request, response);
 		}
-		response.sendRedirect("catalog");
+		else response.sendRedirect("catalog");
 	}
 
 }

@@ -7,6 +7,8 @@
 <title>대여 성공</title>
 </head>
 <body>
-	대여되었습니다.
+	<div class="container mt-5">
+		<p class="h1">대여되었습니다.</p>
+	</div>
 </body>
 </html>

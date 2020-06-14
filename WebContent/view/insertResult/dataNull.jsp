@@ -7,6 +7,8 @@
 <title>추가 실패</title>
 </head>
 <body>
-	모든 데이터를 입력하세요.
+	<div class="container mt-5">
+		<p class="h1">모든 데이터를 입력하세요.</p>
+	</div>
 </body>
 </html>

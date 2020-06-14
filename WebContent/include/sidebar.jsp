@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<nav class="col-md-2 sidebar">
+<nav class="col-md-2 sidebar mt-4">
 	<div class="sidebar-sticky">
 		<ul class="nav flex-column">
 			<li class="nav-item"><a class="nav-link" href="catalog"> 목록 

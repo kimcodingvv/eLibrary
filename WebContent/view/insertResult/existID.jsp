@@ -7,6 +7,8 @@
 <title>추가 실패</title>
 </head>
 <body>
-	이미 있는 아이디입니다.
+	<div class="container mt-5">
+		<p class="h1">이미 있는 ID입니다.</p>
+	</div>
 </body>
 </html>
