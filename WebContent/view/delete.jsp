@@ -8,6 +8,15 @@
 <meta charset="UTF-8">
 <title>삭제</title>
 </head>
+
+<script type="text/javascript">
+	function isDelete(id){
+		if(confirm("정말 삭제하시겠습니까?")){
+			location.href="deleteBook?id=+" + id;
+		}
+	}
+</script>
+
 <body>
 	<div class="jumbotron">
 		<h1 class="text-center">삭제</h1>
@@ -47,7 +56,7 @@
 						<c:if test="${!book.rent}">Y</c:if>
 					</td>
 					<td>${book.rentCnt}</td>
-					<td><a href="deleteBook?id=${book.id}">삭제</a></td>
+					<td><a href="javascript:isDelete(${book.id});">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

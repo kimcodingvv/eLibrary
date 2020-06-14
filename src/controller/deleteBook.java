@@ -30,6 +30,7 @@ public class deleteBook extends HttpServlet {
 			success = true;
 		}
 		else msg = "존재하지 않는 아이디입니다.";
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
