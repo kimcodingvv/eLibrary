@@ -22,6 +22,7 @@ public class addBook extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		bookManagement bm = new bookManagement();
 		String id = request.getParameter("id").trim();
 		String title = request.getParameter("title").trim();

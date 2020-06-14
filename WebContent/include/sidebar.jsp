@@ -20,6 +20,8 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="delete"> 삭제
 			</a></li>
+			<li class="nav-item"><a class="nav-link" href="search"> 검색
+			</a></li>
 		</ul>
 	</div>
 </nav>

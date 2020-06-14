@@ -1,5 +1,6 @@
 package service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Vector;
 import dao.BookInfoDao;
 import model.BookInfo;
@@ -28,6 +29,11 @@ public class filterBookList {
 	
 	public Vector <BookInfo> getNoRent(){
 		dao.findAndSort("rent", "0", "id", true);
+		return dao.getBookList();
+	}
+	
+	public Vector <BookInfo> getSearch(String column, String value) throws UnsupportedEncodingException{
+		dao.searchBook(column, value);
 		return dao.getBookList();
 	}
 }

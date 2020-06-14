@@ -12,7 +12,7 @@
 	</div>
 	
 	<div class="container">
-	<form action="addBook">
+	<form action="addBook" method="post">
 		<div class="form-group row">
 			<div class="col-sm-1 text-center"><label for="inputID col-form-label">ID</label></div>
 			<div class="col-sm-11">

@@ -84,7 +84,7 @@ public class BookInfoDao {
 		try {
 			stmt = this.conn.createStatement();
 			String query = "insert into BookInfo " + "(id, title, author, price) value (" +
-					id + "," + title + "," + author + "," + price + ");";
+					id + ", '" + title + "', '" + author + "', " + price + ");";
 			return stmt.executeUpdate(query) == 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,5 +102,18 @@ public class BookInfoDao {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public void searchBook(String column, String value) throws UnsupportedEncodingException {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "select * from BookInfo where " + column + " like '%" + value + "%';";
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next())
+				this.addElement(rs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
