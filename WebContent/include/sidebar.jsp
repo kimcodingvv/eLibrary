@@ -18,6 +18,8 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="insert"> 추가
 			</a></li>
+			<li class="nav-item"><a class="nav-link" href="delete"> 삭제
+			</a></li>
 		</ul>
 	</div>
 </nav>

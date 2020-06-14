@@ -28,4 +28,8 @@ public class bookManagement {
 	public boolean addBook(String id, String title, String author, String price) {
 		return dao.addBook(id, title, author, price);
 	}
+	
+	public boolean deleteBook(String id) {
+		return dao.deleteBook(id);
+	}
 }

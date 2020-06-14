@@ -91,4 +91,16 @@ public class BookInfoDao {
 		}
 		return false;
 	}
+	
+	public boolean deleteBook(String id) {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "delete from BookInfo where id = " + id + ";";
+			return stmt.executeUpdate(query) == 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
