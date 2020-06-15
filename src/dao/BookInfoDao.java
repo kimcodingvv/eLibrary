@@ -45,13 +45,17 @@ public class BookInfoDao {
 		this.bookList.addElement(book);
 	}
 	
-	public void findAndSort(String action, String value, String order, boolean isAsc) {
+	public void findAndSort(Vector <String> action, Vector <String> value, String order, boolean isAsc) {
 		Statement stmt = null;
 		try {
 			stmt = this.conn.createStatement();
 			String query = "select * from BookInfo";
-			if(!action.equals("all"))
-				query += " where " + action + "=" + value;
+			if(!action.get(0).equals("all")) {
+				query += " where ";
+				for(int i=0; i < action.size(); i++) {
+					query += action.get(i) + "='" + value.get(i) + (i == action.size() - 1 ? "'" : "' and ");
+				}
+			}
 			query += " order by " + order + (isAsc ? " ASC" : " DESC") + ";";
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next())
@@ -65,11 +69,13 @@ public class BookInfoDao {
 		}
 	}
 	
-	public boolean rentToggle(String id) {
+	public boolean rentToggle(String id, String user) {
 		Statement stmt = null;
 		try {
 			stmt = this.conn.createStatement();
 			String query = "update BookInfo set rentCnt = rentCnt + 1 where id=" + id + " and rent = 0;";
+			stmt.executeUpdate(query);
+			query = "update BookInfo set rentUser = '" + user + "' where id=" + id + ";";
 			stmt.executeUpdate(query);
 			query = "update BookInfo set rent = rent XOR 1 where id=" + id + ";";
 			return stmt.executeUpdate(query) == 1;

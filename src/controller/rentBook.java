@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,9 +22,12 @@ public class rentBook extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		bookManagement bm = new bookManagement();
 		String action;
-		if(bm.rentBook(request.getParameter("rentalID")))
+		String id = request.getParameter("rentalID");
+		String user = request.getParameter("rentUser");
+		if(bm.rentBook(id,user))
 			action = "rentResult/success";
 		else action = "rentResult/fail";
 		request.setAttribute("action", action);

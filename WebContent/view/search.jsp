@@ -12,7 +12,7 @@
 	<div class="jumbotron">
 	<h1 class="text-center">검색</h1>
 	</div>
-	<form action="search" method="get">
+	<form action="search" method="post">
 		<div class="form-group row text-center">
 		<div class="col-lg-2"><select class="custom-select col-lg" name="column">
 			<option value="id">ID</option>

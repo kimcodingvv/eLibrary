@@ -7,7 +7,14 @@ public class BookInfo {
 	private int price;
 	private boolean rent;
 	private int rentCnt;
+	private String rentUser;
 	
+	public String getRentUser() {
+		return rentUser;
+	}
+	public void setRentUser(String rentUser) {
+		this.rentUser = rentUser;
+	}
 	public int getId() {
 		return this.id;
 	}

@@ -1,5 +1,7 @@
 package service;
 
+import java.util.Vector;
+
 import dao.BookInfoDao;
 import model.BookInfo;
 
@@ -11,18 +13,25 @@ public class bookManagement {
 		dao = new BookInfoDao();
 	}
 	
-	public boolean rentBook(String id) {
-		dao.findAndSort("id", id, "id", true);
+	public boolean rentBook(String id, String user) {
+		Vector <String> action = new Vector <String> ();
+		action.add("id"); 
+		Vector <String> value = new Vector <String> ();
+		value.add(id);
+		dao.findAndSort(action, value, "id", true);
 		if(dao.getBookList().size() == 0) return false;
 		BookInfo book = dao.getBookList().get(0);
 		if(book.getRent()) return false;
-		book.setRentCnt(book.getRentCnt() + 1);
-		return dao.rentToggle(id);
+		return dao.rentToggle(id, user);
 	}
 	
 	public void returnBook(String id) {
-		dao.findAndSort("id", id, "id", true);
-		dao.rentToggle(id);
+		Vector <String> action = new Vector <String> ();
+		action.add("id"); 
+		Vector <String> value = new Vector <String> ();
+		value.add(id);
+		dao.findAndSort(action, value, "id", true);
+		dao.rentToggle(id, "");
 	}
 	
 	public boolean addBook(String id, String title, String author, String price) {

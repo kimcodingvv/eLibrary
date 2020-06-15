@@ -13,22 +13,40 @@ public class filterBookList {
 	}
 	
 	public Vector <BookInfo> getAll(){
-		dao.findAndSort("all", "", "id", true);
+		Vector <String> action = new Vector <String> ();
+		action.add("all");
+		Vector <String> value = new Vector <String> ();
+		dao.findAndSort(action, value, "id", true);
 		return dao.getBookList();
 	}
 	
 	public Vector <BookInfo> getRentCntDesc(){
-		dao.findAndSort("all", "", "rentCnt", false);
+		Vector <String> action = new Vector <String> ();
+		action.add("all");
+		Vector <String> value = new Vector <String> ();
+		dao.findAndSort(action, value, "rentCnt", false);
 		return dao.getBookList();
 	}
 	
-	public Vector <BookInfo> getYesRent(){
-		dao.findAndSort("rent", "1", "id", true);
+	public Vector <BookInfo> getYesRent(String user){
+		Vector <String> action = new Vector <String> ();
+		action.add("rent"); 
+		Vector <String> value = new Vector <String> ();
+		value.add("1");
+		if(user != null) {
+			action.add("rentUser");
+			value.add(user);
+		}
+		dao.findAndSort(action, value, "id", true);
 		return dao.getBookList();
 	}
 	
 	public Vector <BookInfo> getNoRent(){
-		dao.findAndSort("rent", "0", "id", true);
+		Vector <String> action = new Vector <String> ();
+		action.add("rent");
+		Vector <String> value = new Vector <String> ();
+		value.add("0");
+		dao.findAndSort(action, value, "id", true);
 		return dao.getBookList();
 	}
 	

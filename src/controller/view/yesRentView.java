@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import service.filterBookList;
 
 @WebServlet("/yesRentView")
@@ -25,7 +26,7 @@ public class yesRentView extends HttpServlet {
 		filterBookList list = new filterBookList();
 		request.setAttribute("title", "대여된 책");
 		request.setAttribute("action", "catalog");
-		request.setAttribute("bookList", list.getYesRent());
+		request.setAttribute("bookList", list.getYesRent(null));
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");
 		ret.forward(request,response);
 	}

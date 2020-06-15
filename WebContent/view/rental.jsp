@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% 
+	String user = (String) session.getAttribute("id");
+%>
     
 <!DOCTYPE html>
-<html><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
 <head>
 <meta charset="UTF-8">
 <title>대여</title>
@@ -20,6 +23,7 @@
 		</div>
 		<button class="btn btn-primary" type="submit">확인</button>
 		</div>
+		<input type="hidden" name="rentUser" value="<%=user%>"/>
 	</form>
 	<table class="table">
 		<thead class="thead-light">
@@ -45,7 +49,7 @@
 						<c:if test="${!book.rent}">Y</c:if>
 					</td>
 					<td>${book.rentCnt}</td>
-					<td><a href="rentBook?rentalID=${book.id}">대여</a></td>
+					<td><a href="rentBook?rentalID=${book.id}&rentUser=<%=user%>">대여</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
