@@ -26,14 +26,15 @@ public class linkFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		 HttpServletRequest httprequest = (HttpServletRequest) request;
-		 String url[] = httprequest.getRequestURI().toString().trim().split("/");
+		 HttpServletRequest req = (HttpServletRequest) request;
+		 req.setCharacterEncoding("utf-8");
+		 String url[] = req.getRequestURI().toString().trim().split("/");
 		String action = url[url.length - 1];
 		if (excludeUrl(action)) {
-			chain.doFilter(httprequest, response);
+			chain.doFilter(req, response);
 		} else {
-			RequestDispatcher rd = httprequest.getRequestDispatcher("route?action=" + action);
-           rd.forward(httprequest, response);
+			RequestDispatcher rd = req.getRequestDispatcher("route?action=" + action);
+           rd.forward(req, response);
 		}
 	}
 

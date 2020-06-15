@@ -26,6 +26,7 @@ public class searchView extends HttpServlet {
 		filterBookList list = new filterBookList();
 		String column = request.getParameter("column");
 		String value = request.getParameter("value");
+		System.out.println(value);
 		if(column == null)
 			request.setAttribute("bookList", list.getAll());
 		else
