@@ -14,7 +14,7 @@
 		<h1 class="text-center">${title}</h1>
 	</div>
 	<table class="table">
-		<thead class="thead-dark">
+		<thead class="thead-light">
 			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">제목</th>

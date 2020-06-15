@@ -36,7 +36,7 @@
 				<input class="form-control" type="text" name="price" id="inputPrice" placeholder="가격 입력" />
 			</div>
 		</div>
-		<button class="btn btn-primary" type="submit">저장</button>
+		<button class="btn btn-primary float-right" type="submit">저장</button>
 	</form>
 	</div>
 </body>
