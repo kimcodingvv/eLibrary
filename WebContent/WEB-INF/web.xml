@@ -6,6 +6,26 @@
   </welcome-file-list>
   
   <filter>
+  	<filter-name>admin-filter</filter-name>
+  	<filter-class>myfilter.adminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>admin-filter</filter-name>
+  	<url-pattern>/insert</url-pattern>
+  	<url-pattern>/delete</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>login-filter</filter-name>
+  	<filter-class>myfilter.loginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>login-filter</filter-name>
+  	<url-pattern>/rentBook</url-pattern>
+  	<url-pattern>/return</url-pattern>
+  </filter-mapping>
+  
+  <filter>
   	<filter-name>link-filter</filter-name>
   	<filter-class>myfilter.linkFilter</filter-class>
   </filter>
