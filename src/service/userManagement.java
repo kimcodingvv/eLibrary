@@ -1,5 +1,8 @@
 package service;
 
+import java.util.Vector;
+
+import dao.BookInfoDao;
 import dao.UserInfoDao;
 
 public class userManagement {
@@ -16,5 +19,21 @@ public class userManagement {
 	
 	public boolean login(String id, String password) {
 		return this.dao.login(id, password);
+	}
+	
+	public int changePw(String id, String pw, String newPw, String confirmNewPw) {
+		if(!newPw.equals(confirmNewPw)) return 2;
+		return this.dao.changePw(id, pw, newPw) ? 1 : 0;
+	}
+	
+	public int deleteUser(String id, String pw) {
+		BookInfoDao bd = new BookInfoDao();
+		Vector <String> action = new Vector <String> ();
+		action.add("rentUser"); 
+		Vector <String> value = new Vector <String> ();
+		value.add(id);
+		bd.findAndSort(action, value, "id", true);
+		if(bd.getBookList().size() > 0) return 2;
+		return this.dao.deleteUser(id, pw) ? 1 : 0;
 	}
 }

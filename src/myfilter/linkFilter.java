@@ -43,7 +43,7 @@ public class linkFilter implements Filter {
 				|| action.equals("yesRent") || action.equals("noRent")
 				|| action.equals("rental") || action.equals("return") 
 				|| action.equals("insert") || action.equals("delete") || action.equals("search")
-				|| action.equals("signup") || action.equals("login")) {
+				|| action.equals("signup") || action.equals("login") || action.equals("myInfo")) {
 			return false;
 		} else {
 			return true;

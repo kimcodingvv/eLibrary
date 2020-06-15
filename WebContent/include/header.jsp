@@ -14,7 +14,7 @@
 	<ul class="nav">
 		<c:set var="user" value="<%= user %>" />
 		<c:if test="${user ne null}">
-			<li class="nav-item"><a class="nav-link text-light"><%= user %></a>
+			<li class="nav-item"><a class="nav-link text-light" href="myInfo"><%= user %></a>
 			</li>
 			<li class="nav-item"><a class="nav-link text-light"
 				href="logoutUser">Logout</a></li>

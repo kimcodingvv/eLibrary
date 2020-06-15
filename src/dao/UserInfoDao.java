@@ -71,4 +71,31 @@ public class UserInfoDao {
 		}
 		return false;
 	}
+	
+	public boolean changePw(String id, String pw, String newPw) {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "update UserInfo set password = '" + newPw + "' where id='" + id + "' and password = '" + pw + "';";
+			return stmt.executeUpdate(query) == 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try { stmt.close();}
+			catch (Exception ignored) {}
+		}
+		return false;
+	}
+	
+	public boolean deleteUser(String id, String pw) {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "delete from UserInfo where id = '" + id + "' and password = '" + pw + "';";
+			return stmt.executeUpdate(query) == 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
