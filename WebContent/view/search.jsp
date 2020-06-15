@@ -50,9 +50,11 @@
 						<c:if test="${!book.rent}">Y</c:if>
 					</td>
 					<td>${book.rentCnt}</td>
+					<td>
 					<c:if test="${!book.rent}">
-						<td><a href="rentBook?rentalID=${book.id}">대여</a></td>
+						<a href="rentBook?rentalID=${book.id}">대여</a>
 					</c:if>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

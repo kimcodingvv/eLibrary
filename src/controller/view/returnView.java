@@ -24,7 +24,7 @@ public class returnView extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		filterBookList list = new filterBookList();
-		request.setAttribute("bookList", list.getAll());
+		request.setAttribute("bookList", list.getYesRent());
 		RequestDispatcher ret = request.getRequestDispatcher("view/layout.jsp");
 		ret.forward(request,response);
 	}
