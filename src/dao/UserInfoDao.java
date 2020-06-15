@@ -3,6 +3,7 @@ package dao;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
@@ -47,6 +48,26 @@ public class UserInfoDao {
 			return stmt.executeUpdate(query) == 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean login(String id, String password) {
+		Statement stmt = null;
+		try {
+			stmt = this.conn.createStatement();
+			String query = "select * from UserInfo where id='" + id + "' and password='" +password + "';";
+			ResultSet rs = stmt.executeQuery(query);
+			if (rs.next()) {
+				this.user.setId(rs.getString("id"));
+				this.user.setPassword(rs.getString("password"));
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try { stmt.close();}
+			catch (Exception ignored) {}
 		}
 		return false;
 	}
